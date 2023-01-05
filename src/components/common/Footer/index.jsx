@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Footer brand */}
           <div className="flex flex-col text-white mb-4">
             <img src={Logo} alt="" />
-            <p className="font-normal text-lg leading-[17px] mt-2 ">
+            <p className="font-normal text-lg leading-[17px] mt-4 ">
               Copyright © Travellian 2020 All rights reserved
             </p>
           </div>
