@@ -13,7 +13,7 @@ const Delivery = () => {
           {/* Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-10 lg:grid-cols-4">
             <div className="flex gap-4 items-center pb-4">
-              <span className="border-2 rounded-full">
+              <span className="border-2 rounded-full hover:shadow-2xl transition-all">
                 <img className="p-2" src={delivery} alt="" />
               </span>
               <div className="">
@@ -22,7 +22,7 @@ const Delivery = () => {
               </div>
             </div>
             <div className="flex gap-4 items-center pb-4">
-              <span className="border-2 rounded-full">
+              <span className="border-2 rounded-full  hover:shadow-2xl transition-all">
                 <img className="p-2" src={money} alt="" />
               </span>
               <div className="">
@@ -31,7 +31,7 @@ const Delivery = () => {
               </div>
             </div>
             <div className="flex gap-4 items-center pb-4">
-              <span className="border-2 rounded-full">
+              <span className="border-2 rounded-full  hover:shadow-2xl transition-all">
                 <img className="p-2" src={support} alt="" />
               </span>
               <div className="">
@@ -40,7 +40,7 @@ const Delivery = () => {
               </div>
             </div>
             <div className="flex gap-4 items-center">
-              <span className="border-2 rounded-full">
+              <span className="border-2 rounded-full  hover:shadow-2xl transition-all">
                 <img className="p-2" src={gifcard} alt="" />
               </span>
               <div className="">

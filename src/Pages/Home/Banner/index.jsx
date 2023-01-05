@@ -10,17 +10,14 @@ const Banner = () => {
           {/* CONTENT BOX */}
           <div className="text-white mt-12 sm:mt-16 md:mt-56 lg:text-left">
             <div className="mb-6">
-              <h1 className="font-bold text-4xl lg:text-7xl mb-4 text-[#212529]">
-                Shop Best Home Accessories For Your Children
+              <h1 className="font-bold text-4xl lg:text-5xl mb-4 text-[#212529]">
+                Shop Best Home Accessories <br /> For Your Children
               </h1>
-              <p className="test-base lg:text-xl text-[#212529]">
-                Sale Upto 40%
-              </p>
             </div>
             {/* Shop button */}
             <Link
               to="/products"
-              className="bg-[#212529] text-white py-3 px-5 rounded-md hover:bg-white hover:text-black transition-all"
+              className="bg-[#212529] text-white py-3 px-8 rounded-md hover:bg-white hover:text-black transition-all"
             >
               Shop Now
             </Link>

@@ -17,7 +17,7 @@ const OurTestimonial = () => {
               src="https://cdn.shopify.com/s/files/1/0623/7578/8783/files/testi1_80x80.png?v=1644382541"
               alt=""
             />
-            <p>Ms.Bella</p>
+            <p className="pt-2 pb-2">Ms.Bella</p>
             <p className="">Developer</p>
           </div>
         </div>
