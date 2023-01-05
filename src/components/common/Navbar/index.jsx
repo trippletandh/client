@@ -30,12 +30,16 @@ const Navbar = () => {
           </div>
           {/* Button */}
           <div className="hidden md:flex gap-6 items-center text-white">
-            <button className="text-gray-400 hover:text-black transition-all">
-              Login
-            </button>
-            <button className="text-black bg-green-400 hover:bg-green-500 p-3 rounded-md  transition-all">
-              Sign Up
-            </button>
+            <Link to="/login">
+              <button className="text-gray-400 hover:text-black transition-all">
+                Login
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button className="text-black bg-green-400 hover:bg-green-500 p-3 rounded-md  transition-all">
+                Sign Up
+              </button>
+            </Link>
           </div>
         </div>
       </div>
