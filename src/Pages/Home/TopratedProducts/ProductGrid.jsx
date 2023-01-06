@@ -3,24 +3,28 @@ import ProductCard from "./ProductCard";
 
 const products = [
   {
+    id: 1,
     title: "Mastela 5 in 1 Rocket",
     imageUrl:
       "https://cdn.shopify.com/s/files/1/0623/7578/8783/products/16_600x.jpg?v=1644400827",
     price: "900.00",
   },
   {
+    id: 2,
     title: "Babyhug Bear Face",
     imageUrl:
       "https://cdn.shopify.com/s/files/1/0623/7578/8783/products/7_493x.jpg?v=1644400528",
     price: "300.00",
   },
   {
+    id: 3,
     title: "Skyloft Rabbit LED Night Lamp",
     imageUrl:
       "https://cdn.shopify.com/s/files/1/0623/7578/8783/products/26_493x.jpg?v=1644402525",
     price: "800.00",
   },
   {
+    id: 4,
     title: "Little Genius Steel Kitchen",
     imageUrl:
       "https://cdn.shopify.com/s/files/1/0623/7578/8783/products/5_493x.jpg?v=16444022517",
@@ -35,7 +39,7 @@ const ProductGrid = () => {
       {products.map((item) => {
         return (
           <ProductCard
-            key={item}
+            key={item.id}
             title={item.title}
             imageUrl={item.imageUrl}
             price={item.price}
@@ -43,14 +47,14 @@ const ProductGrid = () => {
         );
       })}
       {/* Button */}
-      <div className=" mt-10 flex gap-4 items-center justify-center xl:hidden">
+      {/* <div className="mt-10 flex gap-4 justify-center items-center  xl:hidden">
         <button className="border-2 p-3 rounded-md hover:bg-[#212529] hover:text-white transition-all">
           <IoIosArrowBack />
         </button>
         <button className="border-2 p-3 rounded-md hover:bg-[#212529] hover:text-white transition-all">
           <IoIosArrowForward />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

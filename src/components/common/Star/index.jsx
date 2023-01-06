@@ -2,11 +2,11 @@ const Star = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill="rgb(250 204 21)"
+      fill="rgb(192,192,192)"
       viewBox="0 0 24 24"
       strokeWidth={0.5}
       stroke="currentColor"
-      className="w-6 h-6 text-yellow-400 xl:w-4 xl:h-4 "
+      className="w-6 h-6 text-grey-400 xl:w-4 xl:h-4 "
     >
       <path
         strokeLinecap="round"

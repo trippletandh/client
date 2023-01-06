@@ -1,4 +1,3 @@
-import Rating from "../../../components/common/Rating";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import ProductGrid from "./ProductGrid";
 

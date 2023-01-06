@@ -1,9 +1,9 @@
 import Rating from "../../../components/common/Rating";
 
-const ProductCard = ({ title, imageUrl, price }) => {
+const ProductCard = ({ id, title, imageUrl, price }) => {
   return (
     <>
-      <div className="">
+      <div className={id}>
         <img className="rounded-t-md" src={imageUrl} alt={title} />
         <div className="text-center bg-gray-200 p-4 rounded-b-md">
           <h4 className="pb-2">{title}</h4>
