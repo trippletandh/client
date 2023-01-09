@@ -1,4 +1,4 @@
-import Logo from "../../../assets/img/Logo.webp";
+import Logo from "../../../assets/img/footerLogo.webp";
 import { Link } from "react-router-dom";
 import { BsTelephone } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";

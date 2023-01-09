@@ -1,6 +1,6 @@
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import ProductCard from "./ProductCard";
 
+//Fake Data products
 const products = [
   {
     id: 1,
@@ -18,7 +18,7 @@ const products = [
   },
   {
     id: 3,
-    title: "Skyloft Rabbit LED Night Lamp",
+    title: "Skyloft LED Night Lamp",
     imageUrl:
       "https://cdn.shopify.com/s/files/1/0623/7578/8783/products/26_493x.jpg?v=1644402525",
     price: "800.00",

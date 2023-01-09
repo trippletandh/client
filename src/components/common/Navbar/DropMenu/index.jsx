@@ -17,7 +17,7 @@ const DropMenu = () => {
       </button>
       {/* Menu Mobile */}
       <div
-        className={`absolute top-20 left-0 bg-white w-full h-screen sm:h-[400px] transition duration-500 md:hidden 
+        className={`absolute top-16 left-0 bg-white w-full h-screen sm:h-[400px] transition duration-500 md:hidden 
         ${open ? "left-0" : "left-[-100%]"}`}
       >
         <p className="text-center pt-6 text-2xl text-black font-bold">Menu</p>

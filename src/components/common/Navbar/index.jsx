@@ -12,10 +12,10 @@ const Navbar = () => {
       {/* Containier */}
       <div className="max-w-screen-xl mx-auto px-4">
         {/* Layout */}
-        <div className="flex justify-between items-center py-4 ">
+        <div className="flex justify-between items-center py-3">
           {/* Logo */}
           <Link to="/">
-            <img src={Logo} alt="" />
+            <img className="text-[40px]" src={Logo} alt="" />
           </Link>
           {/* Navbar */}
           <div className="text-gray-500">
@@ -44,7 +44,7 @@ const Navbar = () => {
               <button className="relative">
                 <BsCartPlus className="text-3xl text-[#212529]" />
               </button>
-              <span className="absolute  top-5 sm:right-[7px]  lg:right-[8px] xl:right-[125px] bg-[#212529] text-white w-5 h-5 text-center rounded-full">
+              <span className="absolute  top-4 sm:right-[7px]  lg:right-[8px] xl:right-[125px] bg-[#212529] text-white w-5 h-5 text-center rounded-full">
                 0
               </span>
             </div>

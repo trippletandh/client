@@ -1,4 +1,3 @@
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import ProductGrid from "./ProductGrid";
 
 const TopratedProducts = () => {
