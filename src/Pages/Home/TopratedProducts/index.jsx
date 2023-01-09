@@ -20,16 +20,6 @@ const TopratedProducts = () => {
                 Learn In Advance.
               </p>
             </div>
-            <div className="hidden xl:block  xl:-mr-[200px]">
-              <div className="lg:flex gap-4 items-center justify-center">
-                <button className="border-2 p-3 rounded-md hover:bg-[#212529] hover:text-white transition-all">
-                  <IoIosArrowBack />
-                </button>
-                <button className="border-2 p-3 rounded-md hover:bg-[#212529] hover:text-white transition-all">
-                  <IoIosArrowForward />
-                </button>
-              </div>
-            </div>
           </div>
           {/* Cards */}
           <ProductGrid />

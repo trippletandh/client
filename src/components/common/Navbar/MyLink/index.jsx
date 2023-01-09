@@ -1,4 +1,4 @@
-const DataLink = [
+const MyLink = [
   {
     title: "Home",
     to: "/",
@@ -13,4 +13,4 @@ const DataLink = [
   },
 ];
 
-export default DataLink;
+export default MyLink;

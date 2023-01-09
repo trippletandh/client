@@ -6,7 +6,7 @@ import { GoLocation } from "react-icons/go";
 
 const Footer = () => {
   return (
-    <div className="bg-[#212529]">
+    <div className="bg-[#212529] mt-8 lg:mt-16">
       {/* Container */}
       <div className="max-w-screen-xl mx-auto px-4">
         {/* Layout */}

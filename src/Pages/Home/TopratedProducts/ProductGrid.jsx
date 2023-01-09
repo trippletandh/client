@@ -46,15 +46,6 @@ const ProductGrid = () => {
           />
         );
       })}
-      {/* Button */}
-      {/* <div className="mt-10 flex gap-4 justify-center items-center  xl:hidden">
-        <button className="border-2 p-3 rounded-md hover:bg-[#212529] hover:text-white transition-all">
-          <IoIosArrowBack />
-        </button>
-        <button className="border-2 p-3 rounded-md hover:bg-[#212529] hover:text-white transition-all">
-          <IoIosArrowForward />
-        </button>
-      </div> */}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
-import DataLink from "../DataLink";
+import MyLink from "../MyLink";
 import NavLink from "../NavLink";
 
 const DropMenu = () => {
@@ -22,7 +22,7 @@ const DropMenu = () => {
       >
         <p className="text-center pt-6 text-2xl text-black font-bold">Menu</p>
         <nav className="flex flex-col" onClick={() => setOpen(false)}>
-          {DataLink.map((item) => {
+          {MyLink.map((item) => {
             return (
               <NavLink
                 key={item.title}

@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import Logo from "../../../assets/img/Logo.webp";
-import { AiOutlineHeart } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
-import { BsHandbag } from "react-icons/bs";
+import { BsCartPlus } from "react-icons/bs";
 import DropMenu from "./DropMenu";
-import DataLink from "./DataLink";
+import MyLink from "./MyLink";
 import NavLink from "./NavLink";
 
 const Navbar = () => {
@@ -24,7 +23,7 @@ const Navbar = () => {
             <DropMenu />
             {/* Menu Web */}
             <nav className="hidden lg:flex items-center text-xl md:gap-8 lg:gap-20">
-              {DataLink.map((item) => {
+              {MyLink.map((item) => {
                 return (
                   <NavLink
                     key={item.title}
@@ -37,16 +36,18 @@ const Navbar = () => {
             </nav>
           </div>
           {/* Button */}
-          <div className="hidden md:flex gap-6">
-            <button>
-              <AiOutlineHeart className="text-2xl" />
-            </button>
+          <div className="hidden md:flex gap-9">
             <Link to="/login">
-              <BiUser className="text-2xl" />
+              <BiUser className="text-3xl text-[#212529]" />
             </Link>
-            <button className="group relative">
-              <BsHandbag className="text-2xl" />
-            </button>
+            <div className="">
+              <button className="relative">
+                <BsCartPlus className="text-3xl text-[#212529]" />
+              </button>
+              <span className="absolute  top-5 sm:right-[7px]  lg:right-[8px] xl:right-[125px] bg-[#212529] text-white w-5 h-5 text-center rounded-full">
+                0
+              </span>
+            </div>
           </div>
         </div>
       </div>
