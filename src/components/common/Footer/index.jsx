@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:pt-[50px]  md:pb-[40px] md:gap-[100px]">
           {/* Footer brand */}
           <div className="flex flex-col text-white mb-4">
-            <img src={Logo} alt="" className="mt-4" />
+            <img src={Logo} alt="" className="mt-4 w-[300px]" />
             <p className="text-lg leading-[17px] mt-4 ">
               Copyright © Travellian 2020 All rights reserved
             </p>

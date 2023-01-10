@@ -8,21 +8,23 @@ import NavLink from "./NavLink";
 
 const Navbar = () => {
   return (
-    <div className="bg-white relative">
+    <div className="bg-white md:fixed w-full z-10 border-b-2">
       {/* Containier */}
-      <div className="max-w-screen-xl mx-auto px-4">
+      <div className="max-w-screen-xl mx-auto px-4 relative">
         {/* Layout */}
         <div className="flex justify-between items-center py-3">
-          {/* Logo */}
-          <Link to="/">
-            <img className="text-[40px]" src={Logo} alt="" />
-          </Link>
-          {/* Navbar */}
-          <div className="text-gray-500">
+          <div className="flex gap-2">
             {/* Drop Menu */}
             <DropMenu />
+            {/* Logo */}
+            <Link to="/">
+              <img className="text-[40px]" src={Logo} alt="" />
+            </Link>
+          </div>
+          {/* Navbar */}
+          <div className="text-gray-500">
             {/* Menu Web */}
-            <nav className="hidden lg:flex items-center text-xl md:gap-8 lg:gap-20">
+            <nav className="hidden md:flex items-center text-xl md:gap-14 lg:gap-20">
               {MyLink.map((item) => {
                 return (
                   <NavLink
@@ -36,7 +38,7 @@ const Navbar = () => {
             </nav>
           </div>
           {/* Button */}
-          <div className="hidden md:flex gap-9">
+          <div className="flex gap-4 md:gap-9">
             <Link to="/login">
               <BiUser className="text-3xl text-[#212529]" />
             </Link>
@@ -44,7 +46,7 @@ const Navbar = () => {
               <button className="relative">
                 <BsCartPlus className="text-3xl text-[#212529]" />
               </button>
-              <span className="absolute  top-4 sm:right-[7px]  lg:right-[8px] xl:right-[125px] bg-[#212529] text-white w-5 h-5 text-center rounded-full">
+              <span className="absolute  top-3 right-2 sm:right-[7px]  lg:right-[8px] xl:right-[8px] bg-[#212529] text-white w-5 h-5 text-center rounded-full">
                 0
               </span>
             </div>

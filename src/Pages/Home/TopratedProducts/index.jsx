@@ -9,7 +9,7 @@ const TopratedProducts = () => {
         <div className="">
           {/* Title */}
           <div className="text-center lg:flex items-center justify-center lg:gap-20">
-            <div className="">
+            <div className=" mb-4">
               <h3 className="text-[#212529] text-lg font-bold mb-4 lg:text-4xl">
                 Toprated Products
               </h3>
