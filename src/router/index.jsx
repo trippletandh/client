@@ -11,7 +11,7 @@ import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound";
 import Profile from "../pages/User/Profile";
 import ViewCart from "../pages/ViewCart";
-import Products from "../pages/Products";
+import Products from "../pages/Products/Products";
 
 // import ProductDetail from "../views/product/ProductDetail";
 // import Products from "../views/product/Products";

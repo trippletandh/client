@@ -1,9 +1,8 @@
-import React from "react";
 import ColumnDisplayIcon from "../../components/common/icons/ColumnDisplayIcon";
 import FilterIcon from "../../components/common/icons/FilterIcon";
 import RowDisplayIcon from "../../components/common/icons/RowDisplayIcon";
 import ProductCard from "./ProductCard";
-import ProductCardRow from "./ProductCardRow";
+// import ProductCardRow from "./ProductCardRow";
 
 const Products = () => {
   const Headbar = () => {
@@ -48,16 +47,16 @@ const Products = () => {
     );
   };
   const ProductFilter = () => {};
-  const ProductsRows = () => {
-    return (
-      <div>
-        <ProductCardRow />
-        <ProductCardRow />
-        <ProductCardRow />
-        <ProductCardRow />
-      </div>
-    );
-  };
+  // const ProductsRows = () => {
+  //   return (
+  //     <div>
+  //       <ProductCardRow />
+  //       <ProductCardRow />
+  //       <ProductCardRow />
+  //       <ProductCardRow />
+  //     </div>
+  //   );
+  // };
   const ProductsGrid = () => {
     return (
       <div>
@@ -80,7 +79,7 @@ const Products = () => {
       {/* Layout */}
       <header className="text-center text-4xl font-semibold">
         {/* Header */}
-        <h1>Products</h1>
+        <h1 className="mt-4">Products</h1>
       </header>
       <div>
         {/* Header */}

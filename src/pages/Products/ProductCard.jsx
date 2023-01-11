@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import EyeIcon from "../../components/common/icons/EyeIcon";
 import Rating from "../../components/common/Rating";
 
