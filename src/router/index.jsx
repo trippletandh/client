@@ -8,7 +8,7 @@ import Signup from "../pages/Authentication/Signup";
 import BlogPage from "../pages/Blog/BlogPage";
 import PostPage from "../pages/Blog/PostPage";
 import Home from "../pages/Home/Home";
-import NotFound from "../Pages/NotFound";
+import NotFound from "../pages/NotFound";
 
 import Profile from "../pages/User/Profile";
 // import ProductDetail from "../views/product/ProductDetail";
