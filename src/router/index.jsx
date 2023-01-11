@@ -9,8 +9,10 @@ import BlogPage from "../pages/Blog/BlogPage";
 import PostPage from "../pages/Blog/PostPage";
 import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound";
-
 import Profile from "../pages/User/Profile";
+import ViewCart from "../pages/ViewCart";
+import Products from "../pages/Products";
+
 // import ProductDetail from "../views/product/ProductDetail";
 // import Products from "../views/product/Products";
 // const [isConnected, setIsconnected] = useState(false);
@@ -46,14 +48,18 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      // {
-      //   path: "products",
-      //   element: <Products />,
-      // },
+      {
+        path: "products",
+        element: <Products />,
+      },
       // {
       //   path: "products/:productId",
       //   element: <ProductDetail />,
       // },
+      {
+        path: "/viewcart",
+        element: <ViewCart />,
+      },
       {
         path: "/blog",
         element: <BlogPage />,

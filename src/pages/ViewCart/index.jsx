@@ -9,7 +9,7 @@ const ViewCart = () => {
   };
   const [quantity, setQuantity] = useState(0);
   return (
-    <section>
+    <>
       {/* Container */}
       <div className="max-w-screen-xl mx-auto p-4">
         {/* Layout */}
@@ -183,19 +183,19 @@ const ViewCart = () => {
             <div>
               <p className=" text-base font-medium">
                 Subtotal:
-                <span className=" text-2xl ml-4">$510.00</span>
+                <span className=" text-2xl ml-4">$255.00</span>
               </p>
               <p className=" text-sm my-4 ">
                 Tax included and shipping calculated at checkout
               </p>
             </div>
-            <button className="w-1/2 md:w-1/3 border rounded-xl bg-[#3d405b] hover:bg-black text-white text-sm py-2 px-3">
+            <button className="w-1/2 md:w-1/3 border rounded-xl bg-[#3d405b] hover:bg-black text-white text-sm py-2 px-3 transition duration-500">
               Check Out
             </button>
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
