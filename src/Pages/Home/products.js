@@ -22,7 +22,7 @@ const products = [
   },
   {
     id: 4,
-    title: "Little Genius Steel Kitchen",
+    title: "Little Genius Steel",
     imageUrl:
       "https://cdn.shopify.com/s/files/1/0623/7578/8783/products/5_493x.jpg?v=16444022517",
     price: "40.00",
