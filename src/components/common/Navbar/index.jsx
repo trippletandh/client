@@ -1,45 +1,55 @@
 import { Link } from "react-router-dom";
 import Logo from "../../../assets/img/Logo.webp";
-import { AiOutlineMenu } from "react-icons/ai";
+import { BiUser } from "react-icons/bi";
+import { BsCartPlus } from "react-icons/bs";
+import DropMenu from "./DropMenu";
+import MyLink from "./MyLink";
+import NavLink from "./NavLink";
 
 const Navbar = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-white  border-b-2">
       {/* Containier */}
-      <div className="max-w-screen-xl mx-auto px-4">
+      <div className="max-w-screen-xl mx-auto px-4 relative">
         {/* Layout */}
-        <div className="flex justify-between items-center py-4 ">
-          {/* Logo */}
-          <Link to="/">
-            <img src={Logo} alt="" />
-          </Link>
+        <div className="flex justify-between items-center py-3">
+          <div className="flex gap-2">
+            {/* Drop Menu */}
+            <DropMenu />
+            {/* Logo */}
+            <Link to="/">
+              <img className="text-[40px]" src={Logo} alt="" />
+            </Link>
+          </div>
           {/* Navbar */}
           <div className="text-gray-500">
-            <AiOutlineMenu className="md:hidden text-2xl text-black cursor-pointer" />
-            <ul className="hidden md:flex items-center text-xl md:gap-8 lg:gap-20">
-              <li className="hover:text-black transition-all">
-                <Link to="/">Home </Link>
-              </li>
-              <li className="hover:text-black transition-all">
-                <Link to="/products">Products</Link>
-              </li>
-              <li className="hover:text-black transition-all">
-                <Link to="/blog">Blog</Link>
-              </li>
-            </ul>
+            {/* Menu Web */}
+            <nav className="hidden md:flex items-center text-xl md:gap-14 lg:gap-20">
+              {MyLink.map((item) => {
+                return (
+                  <NavLink
+                    key={item.title}
+                    className="hover:text-black transition duration-500 hover:border-b-2 hover:border-black"
+                    to={item.to}
+                    title={item.title}
+                  />
+                );
+              })}
+            </nav>
           </div>
           {/* Button */}
-          <div className="hidden md:flex gap-6 items-center text-white">
+          <div className="flex gap-4 md:gap-9">
             <Link to="/login">
-              <button className="text-gray-400 hover:text-black transition-all">
-                Login
-              </button>
+              <BiUser className="text-3xl text-[#212529]" />
             </Link>
-            <Link to="/signup">
-              <button className="text-black bg-green-400 hover:bg-green-500 p-3 rounded-md  transition-all">
-                Sign Up
+            <div className="">
+              <button className="relative">
+                <BsCartPlus className="text-3xl text-[#212529]" />
               </button>
-            </Link>
+              <span className="absolute  top-3 right-2 sm:right-[7px]  lg:right-[8px] xl:right-[8px] bg-[#212529] text-white w-5 h-5 text-center rounded-full">
+                0
+              </span>
+            </div>
           </div>
         </div>
       </div>

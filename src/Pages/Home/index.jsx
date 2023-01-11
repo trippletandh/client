@@ -1,7 +1,17 @@
+import Banner from "./Banner";
+import Delivery from "./Delivery";
+import TopratedProducts from "./TopratedProducts";
+import Hero from "./Hero";
+import Brand from "./Brand";
+
 const Home = () => {
   return (
     <>
-      <h1>HOME PAGE</h1>
+      <Banner />
+      <Delivery />
+      <TopratedProducts />
+      <Hero />
+      <Brand />
     </>
   );
 };

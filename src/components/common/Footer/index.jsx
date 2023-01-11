@@ -1,17 +1,20 @@
-import Logo from "../../../assets/img/Logo.webp";
+import Logo from "../../../assets/img/footerLogo.webp";
 import { Link } from "react-router-dom";
+import { BsTelephone } from "react-icons/bs";
+import { FiMail } from "react-icons/fi";
+import { GoLocation } from "react-icons/go";
 
 const Footer = () => {
   return (
-    <div className="bg-[#212529]">
+    <div className="bg-[#212529] mt-8 lg:mt-16">
       {/* Container */}
       <div className="max-w-screen-xl mx-auto px-4">
         {/* Layout */}
-        <div className="flex flex-col md:flex-row md:pt-[50px]  md:pb-[140px] md:gap-[100px]">
+        <div className="flex flex-col md:flex-row md:pt-[50px]  md:pb-[40px] md:gap-[100px]">
           {/* Footer brand */}
           <div className="flex flex-col text-white mb-4">
-            <img src={Logo} alt="" />
-            <p className="font-normal text-lg leading-[17px] mt-2 ">
+            <img src={Logo} alt="" className="mt-4 w-[300px]" />
+            <p className="text-lg leading-[17px] mt-4 ">
               Copyright © Travellian 2020 All rights reserved
             </p>
           </div>
@@ -38,19 +41,28 @@ const Footer = () => {
             <div className="text-white mb-4">
               <h3 className="font-medium text-2xl  ">Contact Info</h3>
               <ul className="flex flex-col items-start gap-2 pt-2">
-                <a className="text-lg" to="#">
-                  +123 456 789
-                </a>
-                <a className="text-lg" to="#">
-                  info@birthblessing.com
-                </a>
-                <a className="text-lg" to="#">
-                  1245, Ho Chi Minh, VN
-                </a>
+                <li className="flex items-center gap-2">
+                  <BsTelephone />
+                  <a className="text-lg" to="#">
+                    123 456 789
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <FiMail />
+                  <a className="text-lg" to="#">
+                    info@birthblessing.com
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <GoLocation />
+                  <a className="text-lg" to="#">
+                    99, Ho Chi Minh, VN
+                  </a>
+                </li>
               </ul>
             </div>
             {/* Social */}
-            <div className="">
+            <div className="sm:mb-10">
               <h3 className="text-2xl font-medium text-white mb-5">
                 Follow us on
               </h3>
