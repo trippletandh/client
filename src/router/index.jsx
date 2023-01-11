@@ -8,7 +8,8 @@ import Signup from "../pages/Authentication/Signup";
 import BlogPage from "../pages/Blog/BlogPage";
 import PostPage from "../pages/Blog/PostPage";
 import Home from "../pages/Home/Home";
-import NotFound from "../pages/NotFound/NotFound";
+import NotFound from "../Pages/NotFound";
+
 import Profile from "../pages/User/Profile";
 // import ProductDetail from "../views/product/ProductDetail";
 // import Products from "../views/product/Products";
@@ -65,27 +66,27 @@ const router = createBrowserRouter([
         path: "/profile",
         element: <Profile />,
       },
+      {
+        path: "/signin",
+        element: <Signin />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
+      {
+        path: "/auth/:id/verify/:token",
+        element: <EmailVerify />,
+      },
+      {
+        path: "/forgot-password",
+        element: <ForgotPassword />,
+      },
+      {
+        path: "/password-reset/:id/:token",
+        element: <PasswordReset />,
+      },
     ],
-  },
-  {
-    path: "/signin",
-    element: <Signin />,
-  },
-  {
-    path: "/signup",
-    element: <Signup />,
-  },
-  {
-    path: "/auth/:id/verify/:token",
-    element: <EmailVerify />,
-  },
-  {
-    path: "/forgot-password",
-    element: <ForgotPassword />,
-  },
-  {
-    path: "/password-reset/:id/:token",
-    element: <PasswordReset />,
   },
 ]);
 
