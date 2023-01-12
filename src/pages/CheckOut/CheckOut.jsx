@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ViewCheckOut from "./ViewCheckOut";
 
 const CheckOut = () => {
@@ -214,8 +215,8 @@ const CheckOut = () => {
               </div>
             </div>
             <div className="max-w-screen-sm mx-auto my-11 pb-5 md:flex justify-between items-center">
-              <a
-                href=""
+              <Link
+                to="/viewcart"
                 className="flex justify-center items center text-sm py-3"
               >
                 <svg
@@ -233,9 +234,9 @@ const CheckOut = () => {
                   />
                 </svg>
                 Return to cart
-              </a>
+              </Link>
               <button className="w-full text-sm font-medium text-white border rounded-md bg-[#3d405d] px-8 py-5 mb-2 md:w-1/3 lg:px-0 lg:w-2/5">
-                Continue to shipping
+                Continue to shopping
               </button>
             </div>
           </div>

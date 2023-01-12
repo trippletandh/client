@@ -16,11 +16,17 @@ const ViewCart = () => {
         {/* Layout */}
         <div>
           {/* header */}
-          <div className="flex justify-between mb-5 ">
-            <h1 className="font-bold text-2xl lg:text-5xl">Your Cart</h1>
-            <a className="underline text-sm md:text-base" href="">
+          <div className="flex justify-between mb-10 ">
+            <h3 className="text-[#212529] text-lg font-bold mb-4 lg:text-4xl text-center">
+              View Cart
+            </h3>
+            <Link
+              to="/products"
+              className="underline text-sm md:text-base"
+              href=""
+            >
               Continue shopping
-            </a>
+            </Link>
           </div>
           {/* content */}
           <table className="w-full">
