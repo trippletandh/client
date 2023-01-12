@@ -1,5 +1,5 @@
 import Rating from "../../components/common/Rating";
-import products from "./products";
+import Topproducts from "./Topproducts";
 
 const ProductCard = ({ id, title, imageUrl, price }) => {
   return (
@@ -23,7 +23,7 @@ const ProductGrid = () => {
   return (
     <div className="grid grid-cols-2 gap-4 pt-4 lg:grid-cols-4">
       {/* Product Card */}
-      {products.map((item) => {
+      {Topproducts.map((item) => {
         return (
           <ProductCard
             key={item.id}

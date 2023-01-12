@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ViewCart = () => {
   const increase = () => {
@@ -189,9 +190,11 @@ const ViewCart = () => {
                 Tax included and shipping calculated at checkout
               </p>
             </div>
-            <button className="w-1/2 md:w-1/3 border rounded-xl bg-[#3d405b] hover:bg-black text-white text-sm py-2 px-3 transition duration-500">
-              Check Out
-            </button>
+            <Link to="/checkout">
+              <button className="w-1/2 md:w-1/3 border rounded-xl bg-[#3d405b] hover:bg-black text-white text-sm py-2 px-3 transition duration-500">
+                Check Out
+              </button>
+            </Link>
           </div>
         </div>
       </div>

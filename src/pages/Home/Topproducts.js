@@ -1,4 +1,4 @@
-const products = [
+const Topproducts = [
   {
     id: 1,
     title: "Mastela 5 in 1 Rocket",
@@ -29,4 +29,4 @@ const products = [
   },
 ];
 
-export default products;
+export default Topproducts;

@@ -12,6 +12,7 @@ import NotFound from "../pages/NotFound";
 import Profile from "../pages/User/Profile";
 import ViewCart from "../pages/ViewCart";
 import Products from "../pages/Products/Products";
+import Checkout from "../pages/Checkout/CheckOut";
 
 // import ProductDetail from "../views/product/ProductDetail";
 // import Products from "../views/product/Products";
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "products",
+        path: "/products",
         element: <Products />,
       },
       // {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/viewcart",
         element: <ViewCart />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
       },
       {
         path: "/blog",
