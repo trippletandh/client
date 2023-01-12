@@ -62,10 +62,10 @@ const router = createBrowserRouter([
         path: "/viewcart",
         element: <ViewCart />,
       },
-      // {
-      //   path: "/checkout",
-      //   element: <CheckOut />,
-      // },
+      {
+        path: "/checkout",
+        element: <CheckOut />,
+      },
       {
         path: "/blog",
         element: <BlogPage />,
