@@ -2,6 +2,7 @@ import ViewCheckOut from "./ViewCheckOut";
 
 const CheckOut = () => {
   return (
+    //
     <section>
       {/* container */}
       <div className="">
