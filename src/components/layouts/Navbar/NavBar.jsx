@@ -8,7 +8,7 @@ import NavLink from "./NavLink";
 
 const Navbar = () => {
   return (
-    <div className="bg-white  border-b-2">
+    <div className="bg-white  shadow-md">
       {/* Containier */}
       <div className="max-w-screen-xl mx-auto px-4 relative">
         {/* Layout */}

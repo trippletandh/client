@@ -13,6 +13,7 @@ import Profile from "../pages/User/Profile";
 import ViewCart from "../pages/ViewCart";
 import Products from "../pages/Products/Products";
 import Checkout from "../pages/Checkout/CheckOut";
+import ProductDetail from "../pages/Products/product-detail/ProductDetail";
 
 // import ProductDetail from "../views/product/ProductDetail";
 // import Products from "../views/product/Products";
@@ -53,10 +54,10 @@ const router = createBrowserRouter([
         path: "/products",
         element: <Products />,
       },
-      // {
-      //   path: "products/:productId",
-      //   element: <ProductDetail />,
-      // },
+      {
+        path: "/products/:productId",
+        element: <ProductDetail />,
+      },
       {
         path: "/viewcart",
         element: <ViewCart />,

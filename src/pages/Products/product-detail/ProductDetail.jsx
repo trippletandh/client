@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import MinusIcon from "../../components/common/icons/MinusIcon";
-import PlusIcon from "../../components/common/icons/PlusIcon";
-import Rating from "../../components/common/Rating";
+import MinusIcon from "../../../components/common/icons/MinusIcon";
+import PlusIcon from "../../../components/common/icons/PlusIcon";
+// import Rating from "../../components/common/Rating";
 import ImageSlider from "./ImageSlider";
 
 const imageList = [
@@ -86,8 +86,7 @@ const ProductDetail = () => {
             </span>
             <div className="mb-[10px] flex gap-1">
               {/* rating */}
-              <Rating />
-              <p>No reviews</p>
+              {/* <Rating /> */}
             </div>
             <div>
               {/* description */}
@@ -126,7 +125,7 @@ const ProductDetail = () => {
               <div className="flex border gap-5 p-1.5 rounded-md w-1/4">
                 <button
                   onClick={decrease}
-                  className={`${quantity <= 0 && "opacity-50"}`}
+                  className={` ${quantity <= 0 && "opacity-50"}`}
                   disabled={quantity <= 0}
                 >
                   <MinusIcon />

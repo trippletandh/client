@@ -1,8 +1,5 @@
-import ColumnDisplayIcon from "../../components/common/icons/ColumnDisplayIcon";
 import FilterIcon from "../../components/common/icons/FilterIcon";
-import RowDisplayIcon from "../../components/common/icons/RowDisplayIcon";
 import ProductGrid from "./ProductGrid";
-// import ProductCardRow from "./ProductCardRow";
 
 const Products = () => {
   return (
@@ -20,7 +17,7 @@ const Products = () => {
               <div className="mt-6  py-2 px-3 lg:py-3 flex justify-between border border-gray-200 rounded-lg w-full">
                 {/* Layout */}
                 <div className="flex items-center gap-3">
-                  <p>Category</p>
+                  <p>Category:</p>
                   <select
                     name="Sorting"
                     defaultValue="default"

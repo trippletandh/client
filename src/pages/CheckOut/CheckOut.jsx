@@ -1,4 +1,5 @@
 import React from "react";
+import ViewCheckOut from "./ViewCheckOut";
 
 const CheckOut = () => {
   return (
@@ -63,7 +64,7 @@ const CheckOut = () => {
               </div>
             </div>
             {/* View Check Out */}
-            <CheckOut />
+            <ViewCheckOut />
           </div>
 
           {/* main */}
@@ -186,9 +187,9 @@ const CheckOut = () => {
               </select>
               <select name="" id="" className="w-1/3 border rounded p-2">
                 <option value="">Ward</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+                <option value="">Ward 1</option>
+                <option value="">Ward 2</option>
+                <option value="">Ward 3</option>
               </select>
             </div>
             <div>
