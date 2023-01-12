@@ -12,7 +12,7 @@ import NotFound from "../pages/NotFound";
 import Profile from "../pages/User/Profile";
 import ViewCart from "../pages/ViewCart";
 import Products from "../pages/Products/Products";
-import Checkout from "../pages/Checkout/CheckOut";
+import CheckOut from "../pages/CheckOut/CheckOut";
 import ProductDetail from "../pages/Products/product-detail/ProductDetail";
 
 // import ProductDetail from "../views/product/ProductDetail";
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout",
-        element: <Checkout />,
+        element: <CheckOut />,
       },
       {
         path: "/blog",

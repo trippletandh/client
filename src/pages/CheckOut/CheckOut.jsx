@@ -1,4 +1,3 @@
-import React from "react";
 import ViewCheckOut from "./ViewCheckOut";
 
 const CheckOut = () => {
