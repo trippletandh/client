@@ -168,7 +168,7 @@ const ProductDetail = () => {
               </span>
             </div>
             {showForm && (
-              <div>
+              <div className="">
                 <hr className="mt-5" />
                 <form className="mt-5 lg:pl-[30%]" showFormHandle={showForm}>
                   {/* review form */}
