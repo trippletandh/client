@@ -1,23 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import ColumnDisplayIcon from "../../components/common/icons/ColumnDisplayIcon";
 import FilterIcon from "../../components/common/icons/FilterIcon";
 import RowDisplayIcon from "../../components/common/icons/RowDisplayIcon";
 import ProductCard from "./ProductCard";
 import ProductCardRow from "./ProductCardRow";
+import ProductsList from "./ProductList";
 
 const Products = () => {
+  const [display, setDisplay] = useState(true);
   const Headbar = () => {
     return (
       <div>
         {/* Container */}
-        <div className="mt-6 mx-6 py-2 px-3 lg:py-3 flex justify-between border border-gray-200 rounded-lg">
+        <div className="mt-6 py-2 px-3 lg:py-3 flex justify-between border border-gray-200 rounded-lg">
           {/* Layout */}
           <div className="flex gap-3">
             {/* display */}
-            <button>
+            <button
+              onClick={() => {
+                setDisplay(true);
+              }}
+              className={`${display ? "bg-sky-500/30 rounded-md" : ""}`}
+            >
               <ColumnDisplayIcon />
             </button>
-            <button>
+            <button
+              onClick={() => {
+                setDisplay(false);
+              }}
+              className={`${!display ? "bg-sky-500/30 rounded-md" : ""}`}
+            >
               <RowDisplayIcon />
             </button>
           </div>
@@ -47,51 +59,62 @@ const Products = () => {
       </div>
     );
   };
-  const ProductFilter = () => {};
-  const ProductsRows = () => {
+  const ProductGrid = () => {
     return (
-      <div>
-        <ProductCardRow />
-        <ProductCardRow />
-        <ProductCardRow />
-        <ProductCardRow />
-      </div>
-    );
-  };
-  const ProductsGrid = () => {
-    return (
-      <div>
-        {/* Container */}
-        <div>
-          {/* Layout */}
-          <div className="grid grid-cols-2 lg:grid-cols-3 py-8 gap-8 px-8">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-          </div>
+      <>
+        <div className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-3">
+          {/* Container */}
+          {ProductsList.map((item) => {
+            if (display === true) {
+              return (
+                <ProductCard
+                  key={item.id}
+                  title={item.title}
+                  imageUrl={item.imageUrl}
+                  price={item.price}
+                />
+              );
+            }
+          })}
         </div>
-      </div>
+        <div>
+          {ProductsList.map((item) => {
+            if (display === false) {
+              return (
+                <ProductCardRow
+                  key={item.id}
+                  title={item.title}
+                  imageUrl={item.imageUrl}
+                  price={item.price}
+                  description={item.description}
+                />
+              );
+            }
+          })}
+        </div>
+      </>
     );
   };
 
   return (
-    <section>
-      {/* Layout */}
-      <header className="text-center text-4xl font-semibold">
-        {/* Header */}
-        <h1>Products</h1>
-      </header>
-      <div>
-        {/* Header */}
-        <Headbar />
-        {/* Content Box */}
-        <div>
-          <ProductsGrid />
-          {/* <ProductsRows /> */}
+    <div className="mt-8 lg:mt-16">
+      {/* Container */}
+      <div className="max-w-screen-xl mx-auto px-6">
+        {/* Layout */}
+        <h3 className="text-[#212529] text-2xl font-bold mb-4 lg:text-4xl text-center">
+          Products
+        </h3>
+        <div className="flex gap-10">
+          {/* Title */}
+          <div className="">
+            <div>
+              <Headbar />
+            </div>
+            <ProductGrid />
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
