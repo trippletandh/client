@@ -206,7 +206,7 @@ const CheckOut = () => {
             <div className="my-4">
               <p className="mb-4">Payment Method</p>
               <div className="border rounded flex gap-2 items-center py-3">
-                <input type="radio" className="ml-5" checked />
+                <input type="radio" className="ml-5" />
                 <img
                   src="https://hstatic.net/0/0/global/design/seller/image/payment/cod.svg?v=4"
                   alt=""
