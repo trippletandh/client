@@ -1,4 +1,3 @@
-import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -30,10 +29,10 @@ const ImageSlider = ({ imageList, setImageIndex, imageIndex }) => {
         <div>
           {imageList.map((item, index) => {
             return (
-              <SwiperSlide key={item.id}>
+              <SwiperSlide key={index}>
                 <button onClick={() => handleClick(index)}>
                   <img
-                    src={item.imageUrl}
+                    src={item}
                     className={`${
                       imageIndex === index &&
                       "rounded hover:opacity-80 hover:border-gray-600 border-[1.5px] border-black"
