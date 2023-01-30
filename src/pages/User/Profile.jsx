@@ -5,19 +5,13 @@ function Profile({ user }) {
       <div className="bg-gray-200 p-4">
         <div className="flex flex-col justify-center items-center">
           <button className="btn btn-secondary">
-            <img src="{user.image}" alt="user face" height={100} width={100} />
+            <img src={user.image} alt="user face" height={100} width={100} />
           </button>
-          <span className="name mt-3">
-            {"{"}user.name{"}"}
-          </span>
-          {"{"}" "{"}"}
+          <span className="name mt-3">{user.name}</span>{" "}
           <div className="d-flex flex-row justify-content-center align-items-center gap-2" />
           <div className="d-flex flex-row justify-content-center align-items-center mt-3">
             <span className="number">
-              e-mail 📧 :{" "}
-              <span className="follow">
-                {"{"}user.email{"}"}
-              </span>
+              e-mail 📧 : <span className="follow">{user.email}</span>
             </span>
           </div>
         </div>
