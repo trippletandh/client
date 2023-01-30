@@ -10,9 +10,9 @@ import {
   sortNumbers,
   sortNames,
   paginate,
-} from "../../services/productsSevice";
+} from "../../services/productsService";
 
-const Products = () => {
+const Products = ({ user }) => {
   const [category, setCategory] = useState("all");
   const [sortType, setsortType] = useState("");
   const [page, setPage] = useState(1);
@@ -81,16 +81,14 @@ const Products = () => {
                     onClick={() => {
                       setDisplay(true);
                     }}
-                    className={`${display ? "bg-sky-500/30 rounded-md" : ""}`}
-                  >
+                    className={`${display ? "bg-sky-500/30 rounded-md" : ""}`}>
                     <ColumnDisplayIcon />
                   </button>
                   <button
                     onClick={() => {
                       setDisplay(false);
                     }}
-                    className={`${!display ? "bg-sky-500/30 rounded-md" : ""}`}
-                  >
+                    className={`${!display ? "bg-sky-500/30 rounded-md" : ""}`}>
                     <RowDisplayIcon />
                   </button>
                   <p>Category:</p>
@@ -98,8 +96,7 @@ const Products = () => {
                     name="Sorting"
                     defaultValue="all"
                     onChange={handleSelect}
-                    className="select select-bordered border rounded-lg p-1"
-                  >
+                    className="select select-bordered border rounded-lg p-1">
                     <option value="all">All</option>
                     <option value="play aids">Play Aids</option>
                     <option value="toys">Toys</option>
@@ -121,8 +118,7 @@ const Products = () => {
                     name="Sorting"
                     onChange={handleSorting}
                     defaultValue="default"
-                    className="select select-bordered border rounded-lg p-1"
-                  >
+                    className="select select-bordered border rounded-lg p-1">
                     <option value="default" disabled>
                       Choose your option
                     </option>
@@ -137,7 +133,7 @@ const Products = () => {
           </div>
 
           {/* Cards */}
-          <ProductGrid products={paginatedArr} display={display} />
+          <ProductGrid products={paginatedArr} display={display} user={user} />
           <Pagination setPage={setPage} paginationParams={paginationParams} />
         </div>
       </div>

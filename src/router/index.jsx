@@ -10,35 +10,12 @@ import PostPage from "../pages/Blog/PostPage";
 import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound";
 import Profile from "../pages/User/Profile";
-import ViewCart from "../pages/ViewCart";
+import ViewCart from "../pages/ViewCart/Cart";
 import Products from "../pages/Products/Products";
-import CheckOut from "../pages/CheckOut/CheckOut";
+import OrderInfomation from "../pages/CheckOut/OrderInfomation";
 import ProductDetail from "../pages/Products/product-detail/ProductDetail";
-
-// import ProductDetail from "../views/product/ProductDetail";
-// import Products from "../views/product/Products";
-// const [isConnected, setIsconnected] = useState(false);
-
-// const checkUserToken = () => {
-//   if (typeof window !== "undefined") {
-//     const user = JSON.parse(localStorage.getItem("token"));
-//     if (user) {
-//       setIsconnected(true);
-//     } else {
-//       setIsconnected(false);
-//     }
-//   }
-// };
-// useEffect(() => {
-//   checkUserToken();
-// }, [isConnected]);
-
-// const Logout = () => {
-//   if (localStorage.getItem("token")) {
-//     localStorage.clear();
-//     setIsconnected(false);
-//   }
-// };
+import OrderShipping from "../pages/CheckOut/OrderShipping";
+import CheckOut from "../pages/CheckOut/CheckOut";
 
 const router = createBrowserRouter([
   {
@@ -63,7 +40,15 @@ const router = createBrowserRouter([
         element: <ViewCart />,
       },
       {
-        path: "/checkout",
+        path: "/checkout/:userId/infomation",
+        element: <OrderInfomation />,
+      },
+      {
+        path: "/checkout/:userId/shipping",
+        element: <OrderShipping />,
+      },
+      {
+        path: "/checkout/:userId/payment",
         element: <CheckOut />,
       },
       {

@@ -1,4 +1,4 @@
-import Rating from "../../../components/common/Rating";
+// import Rating from "../../../components/common/Rating";
 import ProductGrid from "./ProductGrid";
 
 const TopratedProducts = () => {

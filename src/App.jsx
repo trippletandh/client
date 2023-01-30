@@ -10,14 +10,28 @@ import Signin from "./pages/Authentication/Signin";
 import PostPage from "./pages/Blog/PostPage";
 import BlogPage from "./pages/Blog/BlogPage";
 import EmailVerify from "./pages/Authentication/EmailVerify";
+import Home from "./pages/Home/Home";
+import Products from "./pages/Products/Products";
+import ProductDetail from "./pages/Products/product-detail/ProductDetail";
+import ViewCart from "./pages/ViewCart/Cart";
+import OrderInfomation from "./pages/CheckOut/OrderInfomation";
+import OrderShipping from "./pages/CheckOut/OrderShipping";
+import CheckOut from "./pages/CheckOut/CheckOut";
+import Navbar from "./components/layouts/Navbar/NavBar";
+import Footer from "./components/layouts/Footer";
+import Signout from "./pages/Authentication/Signout";
+import { getUser } from "./services/authService";
+import ForceRedirect from "./components/auth/ForceRedirect";
 
 function App() {
+  getUser();
+  const user = JSON.parse(localStorage.getItem("user"));
   const [isConnected, setIsconnected] = useState(false);
 
   const checkUserToken = () => {
     if (typeof window !== "undefined") {
-      const user = JSON.parse(localStorage.getItem("token"));
-      if (user) {
+      const token = JSON.parse(localStorage.getItem("token"));
+      if (token) {
         setIsconnected(true);
       } else {
         setIsconnected(false);
@@ -28,28 +42,37 @@ function App() {
     checkUserToken();
   }, [isConnected]);
 
-  const Logout = () => {
-    if (localStorage.getItem("token")) {
-      localStorage.clear();
-      setIsconnected(false);
-    }
-  };
-
   return (
     <BrowserRouter>
       <div className="bg-white" style={{ height: "100vh" }}>
-        {/* <Header Logout={Logout} user={isConnected} /> */}
+        <Navbar Signout={Signout} user={isConnected} />
         <Routes>
           <Route
-            path="/"
+            path="/profile"
             element={
               <ProtectedRoute user={isConnected}>
-                <Profile />
+                <Profile user={user} />
               </ProtectedRoute>
             }
           />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/signin"
+            element={
+              <ForceRedirect user={isConnected}>
+                <Signin />
+              </ForceRedirect>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <ForceRedirect user={isConnected}>
+                <Signup />
+              </ForceRedirect>
+            }
+          />
+          <Route path="/signout" element={<Signout />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:postId" element={<PostPage />} />
           <Route path="/auth/:id/verify/:token" element={<EmailVerify />} />
@@ -58,8 +81,31 @@ function App() {
             path="/password-reset/:id/:token"
             element={<PasswordReset />}
           />
+          <Route path="/products" element={<Products user={user} />} />
+          <Route
+            path="/products/:productId"
+            element={<ProductDetail user={user} />}
+          />
+          <Route path="/viewcart" element={<ViewCart user={user} />} />
+          <Route
+            path="/checkout/:userId/infomation"
+            element={
+              <ProtectedRoute user={isConnected}>
+                <OrderInfomation user={user} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/checkout/:userId/shipping"
+            element={<OrderShipping user={user} />}
+          />
+          <Route
+            path="/checkout/:userId/payment"
+            element={<CheckOut user={user} />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

@@ -1,27 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import MinusIcon from "../../../components/common/icons/MinusIcon";
-import PlusIcon from "../../../components/common/icons/PlusIcon";
-// import Rating from "../../components/common/Rating";
 import ImageSlider from "./ImageSlider";
 import axios from "axios";
+import AddToCart from "./AddToCart";
+import RelatedProduct from "./RelatedProduct";
 
-const ProductDetail = () => {
+const ProductDetail = ({ user }) => {
   const [imageIndex, setImageIndex] = useState(0);
 
   const [showForm, setShowForm] = useState(false);
   const showFormHandle = () => {
     setShowForm(!showForm);
-  };
-
-  const [quantity, setQuantity] = useState(0);
-  const decrease = () => {
-    setQuantity(quantity - 1);
-  };
-
-  const increase = () => {
-    setQuantity(quantity + 1);
   };
 
   const { productId } = useParams();
@@ -34,9 +24,9 @@ const ProductDetail = () => {
   const { data: product } = data;
 
   return (
-    <section className="max-w-screen-lg mx-auto px-5 py-4">
+    <section className="max-w-screen-xl mx-auto px-5 py-4">
       {/* Container */}
-      <div className="md:flex lg:max-w-md gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Layout */}
         <div className="w-full">
           {/* === Image === */}
@@ -93,37 +83,12 @@ const ProductDetail = () => {
                 <button className="rounded-md p-4 shadow-sm border hover:border-black text-xs bg-gray-400"></button>
               </div>
             </div>
-            <div className="mt-3">
-              {/* quantity */}
-              <h5 className="pb-2">Quantity</h5>
-              <div className="flex border gap-5 p-1.5 rounded-md w-1/4">
-                <button
-                  onClick={decrease}
-                  className={` ${quantity <= 0 && "opacity-50"}`}
-                  disabled={quantity <= 0}
-                >
-                  <MinusIcon />
-                </button>
-                <p>{quantity}</p>
-                <button onClick={increase}>
-                  <PlusIcon />
-                </button>
-              </div>
-            </div>
-            <div className="mt-4">
-              {/* cart and buy buttons */}
-              <div className="mb-3 text-center rounded-md py-2 bg-slate-700 hover:bg-black hover:cursor-pointer text-white">
-                <button>Add To Cart</button>
-              </div>
-              <div className="border border-black mb-3 text-center rounded-md py-2  hover:bg-black hover:cursor-pointer hover:text-white">
-                <button>Buy It Now</button>
-              </div>
-            </div>
+            <AddToCart product={product} user={user} />
           </div>
         </div>
       </div>
       {/* ========= */}
-      <div className="px-4 mt-7">
+      <div className=" mt-7">
         <div className="border p-4 rounded-xl mb-7">
           {/* Review */}
           <div>
@@ -135,8 +100,7 @@ const ProductDetail = () => {
               <span>
                 <button
                   onClick={() => showFormHandle(true)}
-                  className="my-2 text-center rounded-xl px-3.5 py-2.5 text-sm bg-slate-700 hover:bg-black hover:cursor-pointer text-white"
-                >
+                  className="my-2 text-center rounded-xl px-3.5 py-2.5 text-sm bg-slate-700 hover:bg-black hover:cursor-pointer text-white">
                   Write a review
                 </button>
               </span>
@@ -190,8 +154,7 @@ const ProductDetail = () => {
                         id="message"
                         rows="4"
                         className="mt-2 p-2.5 w-full lg:w-[70%] text-sm border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Write your comments here"
-                      ></textarea>
+                        placeholder="Write your comments here"></textarea>
                     </div>
                   </fieldset>
                   <div className="">
@@ -207,6 +170,7 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+      <RelatedProduct product={product} />
     </section>
   );
 };

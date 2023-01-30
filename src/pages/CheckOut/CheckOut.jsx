@@ -1,98 +1,261 @@
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
-import { Link } from "react-router-dom";
-import FormCheckOut from "./FormCheckOut";
 import SidebarCheckOut from "./SidebarCheckOut";
+import DropIn from "braintree-web-drop-in-react";
+import {
+  createOrder,
+  getBraintreeClientToken,
+  processPayment,
+} from "../../services/paymentService";
+import { isAuthenticated } from "../../services/authService";
+import { useEffect, useState } from "react";
+import { emptyCart } from "../../services/cartService";
+import { getCartItems } from "../ViewCart/useCart";
+import { useNavigate } from "react-router-dom";
 
-const CheckOut = () => {
+const CheckOut = ({ user }) => {
+  const navigate = useNavigate();
+  const info = JSON.parse(localStorage.getItem("shippingInfo"));
+  const address = JSON.parse(localStorage.getItem("shippingInfo2"));
+  const fullAddress = JSON.parse(localStorage.getItem("shippingAddress"));
+  const total = JSON.parse(localStorage.getItem("total"));
+  let products;
+  if (!user) products = [];
+  const { data, isLoading } = getCartItems();
+  if (isLoading) return <h1>Loading...</h1>;
+  products = data.data.products;
+
+  const [datas, setDatas] = useState({
+    loading: false,
+    success: false,
+    clientToken: null,
+    error: "",
+    instance: {},
+    address: fullAddress,
+  });
+
+  const userId = user._id;
+  const token = localStorage.getItem("token");
+
+  const getToken = (userId, token) => {
+    getBraintreeClientToken(userId, token).then((data) => {
+      if (data.error) {
+        console.log(data.error);
+        setDatas({ ...data, error: data.error });
+      } else {
+        console.log(data);
+        setDatas({ clientToken: data.clientToken });
+      }
+    });
+  };
+
+  useEffect(() => {
+    getToken(userId, token);
+  }, []);
+
+  const showCheckout = () => {
+    return isAuthenticated() ? (
+      <div>{showDropIn()}</div>
+    ) : (
+      <Link to="/signin">
+        <button className="btn btn-primary">Sign in to checkout</button>
+      </Link>
+    );
+  };
+
+  let deliveryAddress = datas.address;
+
+  const buy = () => {
+    setDatas({ loading: true });
+    // send the nonce to server
+    // nonce = data.instance.requestPaymentMethod()
+    let nonce;
+    let getNonce = datas.instance
+      .requestPaymentMethod()
+      .then((datas) => {
+        // console.log(data);
+        nonce = datas.nonce;
+        const paymentData = {
+          paymentMethodNonce: nonce,
+          amount: total,
+        };
+
+        processPayment(userId, token, paymentData)
+          .then((response) => {
+            console.log(response);
+            // empty cart
+            // create order
+
+            const createOrderData = {
+              products: products,
+              transaction_id: response.transaction.id,
+              amount: response.transaction.amount,
+              address: deliveryAddress,
+            };
+
+            createOrder(userId, token, createOrderData)
+              .then((response) => {
+                emptyCart(user);
+                console.log("payment success and empty cart");
+                setDatas({
+                  loading: false,
+                  success: true,
+                });
+                navigate("/");
+              })
+              .catch((error) => {
+                console.log(error);
+                setDatas({ loading: false });
+              });
+          })
+          .catch((error) => {
+            console.log(error);
+            setDatas({ loading: false });
+          });
+      })
+      .catch((error) => {
+        // console.log("dropin error: ", error);
+        setDatas({ ...datas, error: error.message });
+      });
+  };
+
+  const showDropIn = () => (
+    <div onBlur={() => setDatas({ ...datas, error: "" })}>
+      {datas.clientToken !== null && products.length > 0 ? (
+        <div>
+          <DropIn
+            options={{
+              authorization: datas.clientToken,
+              paypal: {
+                flow: "vault",
+              },
+            }}
+            onInstance={(instance) => (datas.instance = instance)}
+          />
+          <button
+            onClick={buy}
+            className="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-green-500 text-white hover:green-600 w-full">
+            Pay Now
+          </button>
+        </div>
+      ) : null}
+    </div>
+  );
+
+  const showError = (error) => (
+    <div
+      className="alert alert-danger"
+      style={{ display: error ? "" : "none" }}>
+      {error}
+    </div>
+  );
+
+  const showSuccess = (success) => (
+    <div
+      className="alert alert-info"
+      style={{ display: success ? "" : "none" }}>
+      Thanks! Your payment was successful!
+    </div>
+  );
+
+  const showLoading = (loading) =>
+    loading && <h2 className="text-danger">Loading...</h2>;
+
   return (
     <section>
       {/* container */}
       <div className="">
         {/* layout */}
-        <div className="lg:grid lg:grid-cols-5">
+        <div className="lg:grid">
           {/* Sidebar */}
-          <SidebarCheckOut />
+          <SidebarCheckOut user={user} />
 
           {/* main */}
-          <div className="max-w-screen-sm mx-auto lg:row-start-1 lg:col-span-3 lg:mx-20">
+          <div className="max-w-screen-sm mx-auto px-4 lg:row-start-1 lg:col-span-3">
             <div className="flex items-center gap-2 mt-4 text-xs max-w-screen-sm mx-auto">
               <p>Cart</p>
               <HiChevronRight />
-              <p className="font-bold">Information</p>
+              <p>Information</p>
               <HiChevronRight />
               <p>Shipping</p>
               <HiChevronRight />
-              <p>Payment</p>
+              <p className="font-bold">Payment</p>
               <HiChevronRight />
             </div>
-            <h3 className="flex justify-between items-center my-6 lg:text-lg">
-              Contact information
-              <span className="lg:text-sm">
-                Already have an account? Log in
-              </span>
-            </h3>
-            {/* Form */}
-            <FormCheckOut />
-            {/* Selection */}
-            <div className="mb-4 flex gap-1">
-              <select
-                name="city"
-                id="city"
-                className="w-1/3 border rounded p-2"
-              >
-                <option value="">City</option>
-                <option value="">Ho Chi Minh</option>
-                <option value="">Ha Noi</option>
-                <option value="">Da Nang</option>
-                <option value="">An Giang</option>
-                <option value="">Hue</option>
-              </select>
-              <select name="" id="" className="w-1/3 border rounded p-2">
-                <option value="">District</option>
-                <option value="">District 1</option>
-                <option value="">District 2</option>
-                <option value="">District 3</option>
-                <option value="">District 4</option>
-              </select>
-              <select name="" id="" className="w-1/3 border rounded p-2">
-                <option value="">Ward</option>
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-              </select>
-            </div>
-            <div>
-              <p className="mb-4">Delivery method</p>
-              <div className="border rounded text-center py-5">
-                <img
-                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgiIGhlaWdodD0iODUiIHZpZXdCb3g9IjAgMCAxMDggODUiPjxnIHN0cm9rZT0iI0IyQjJCMiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGZpbGw9Im5vbmUiPjxwYXRoIGQ9Ik0xIDE4aDEwNk0xMSA3MC4zaDI2bS0yNi02aDI2bS0yNi02aDE3Ii8+PC9nPjxwYXRoIHN0cm9rZT0iI0IyQjJCMiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik0xIDE4bDEwLjctMTdoODQuN2wxMC42IDE3djYxLjVjMCAyLjUtMiA0LjUtNC41IDQuNWgtOTdjLTIuNSAwLTQuNS0yLTQuNS00LjV2LTYxLjV6TTU0IDF2MTYuNiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg=="
-                  className="mx-auto mb-2"
-                />
-                <p>Please choose the city</p>
+            {/* Shipping address */}
+            <div
+              role="table"
+              aria-label="Review your information"
+              className="bg-white border-gray-400 rounded border-solid border text-gray-700 text-sm leading-5 my-10">
+              <div
+                role="row"
+                className="items-baseline mx-4 py-3 flex justify-between">
+                <div className="pr-3 flex justify-between gap-10">
+                  <div role="cell" className="">
+                    <span className="text-gray-600">Contact</span>
+                  </div>
+                  <div role="cell" className="">
+                    <bdo className="" dir="ltr">
+                      {info.name}, {info.phoneNumber}, {info.email}
+                    </bdo>
+                  </div>
+                </div>
+                <div className="pr-3" role="cell">
+                  <a
+                    href={`/checkout/${user._id}/infomation`}
+                    className=""
+                    aria-label="Change contact information">
+                    <span className="text-indigo-900 inline text-xs leading-4">
+                      Change
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <div
+                role="row"
+                className="items-baseline border-gray-400 border-t mx-4 py-3 flex justify-between ">
+                <div className="pr-3 flex justify-between gap-10 ">
+                  <div role="cell" className="">
+                    <span className="text-gray-600">Ship to</span>
+                  </div>
+                  <div role="cell" className="">
+                    <div className="">
+                      <address className="">
+                        {info.detailAddress}, {address.ward}, {address.district}
+                        , {address.city}
+                      </address>
+                    </div>
+                  </div>
+                </div>
+                <div className="pr-3" role="cell">
+                  <a
+                    href={`/checkout/${user._id}/infomation`}
+                    className=""
+                    aria-label="Change contact information">
+                    <span className="text-indigo-900 inline text-xs leading-4">
+                      Change
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
+
+            {/* Payment */}
             <div className="my-4">
-              <p className="mb-4">Payment Method</p>
-              <div className="border rounded flex gap-2 items-center py-3">
-                <input type="radio" className="ml-5" />
-                <img
-                  src="https://hstatic.net/0/0/global/design/seller/image/payment/cod.svg?v=4"
-                  alt=""
-                />
-                <p>Cash on Delivery(COD)</p>
+              {/* <p className="mb-4 capitalize">Choose a way to pay</p> */}
+              <div className="mx-auto border w-full rounded gap-2 items-center py-3">
+                {showLoading(data.loading)}
+                {showSuccess(data.success)}
+                {showError(data.error)}
+                {showCheckout()}
               </div>
             </div>
             <div className="max-w-screen-sm mx-auto my-11 pb-5 md:flex justify-between items-center ">
               <a
-                href=""
-                className="flex justify-center items-center text-md py-3"
-              >
+                href={`/checkout/${user._id}/shipping`}
+                className="flex justify-center items-center text-md py-3">
                 <HiChevronLeft size={30} />
-                Return to cart
+                Return to infomation
               </a>
-              <button className="w-full text-sm font-medium text-white border rounded-md bg-[#3d405d] px-8 py-5 mb-2 md:w-1/3 lg:px-0 lg:w-2/5">
-                Continue to shipping
-              </button>
             </div>
           </div>
         </div>
