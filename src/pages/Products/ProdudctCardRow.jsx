@@ -18,7 +18,7 @@ const ProdudctCardRow = ({ product, user }) => {
             />
             <div className="w-3/5 lg:w-4/5 bg-gray-100 px-3 p-3">
               {/* ProductInfo */}
-              <p className="mb-[10px] line-clamp-2 font-[1.5px] text-sm text-gray-500">
+              <p className="mb-[10px] line-clamp-3 font-[1.5px] text-sm text-gray-500">
                 {product.description}
               </p>
               <div className="flex gap-2.5 pb-2">
@@ -32,13 +32,15 @@ const ProdudctCardRow = ({ product, user }) => {
                 {product.inStock > 0 ? (
                   <button
                     onClick={addToCart}
-                    className="bg-[#212529] text-white py-2 px-4 rounded-md  hover:bg-white hover:text-black md:px-6  transition duration-500 ">
+                    className="bg-[#212529] text-white py-2 px-4 rounded-md  hover:bg-white hover:text-black md:px-6  transition duration-500 "
+                  >
                     Add To Cart
                   </button>
                 ) : (
                   <button
                     disabled
-                    className="bg-[#212529] text-white py-2 px-4 rounded-md  hover:bg-white hover:text-black md:px-6  transition duration-500 ">
+                    className="bg-[#212529] text-white py-2 px-4 rounded-md  hover:bg-white hover:text-black md:px-6  transition duration-500 "
+                  >
                     Out of Stock
                   </button>
                 )}

@@ -11,7 +11,11 @@ const BlogPage = () => {
   });
 
   if (isLoading) {
+<<<<<<< Updated upstream
     return <span>Loading...</span>;
+=======
+    return <GlobalSpinner />;
+>>>>>>> Stashed changes
   }
 
   if (isError) {

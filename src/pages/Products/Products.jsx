@@ -4,6 +4,8 @@ import Pagination from "../../components/layouts/Pagination";
 import ProductGrid from "./ProductGrid";
 import ColumnDisplayIcon from "../../components/common/icons/ColumnDisplayIcon";
 import RowDisplayIcon from "../../components/common/icons/RowDisplayIcon";
+import GlobalSpinner from "../../components/common/GlobalSpinner"
+import Loader from "../../components/common/Loader"
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import {
@@ -40,8 +42,9 @@ const Products = ({ user }) => {
     cacheTime: 5 * 60 * 1000,
   });
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <GlobalSpinner/>;
   const { data: filteredProducts } = data;
+
 
   const sortedArr =
     (sortType === "lowtohigh" || sortType === "hightolow"

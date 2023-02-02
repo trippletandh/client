@@ -5,6 +5,10 @@ import { InlineShareButtons } from "sharethis-reactjs";
 import fetchImage from "../../services/fetchImage";
 import axios from "axios";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+<<<<<<< Updated upstream
+=======
+import GlobalSpinner from "../../components/common/GlobalSpinner";
+>>>>>>> Stashed changes
 
 const SocialSharing = ({ post, postId }) => {
   return (
