@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import Loader from "../../components/common/Loader";
 import fetchImage from "../../services/fetchImage";
+import Loader from "../loaders/Loader";
 
 const PostCardItem = ({ featureMedia, title, content, author, url, date }) => {
   const { data: imageSrc, isLoading } = useQuery({
@@ -17,7 +18,7 @@ const PostCardItem = ({ featureMedia, title, content, author, url, date }) => {
   };
   const dateFormated = new Date(date);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loader/>;
 
   return (
     <>

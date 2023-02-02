@@ -5,10 +5,14 @@ import { InlineShareButtons } from "sharethis-reactjs";
 import fetchImage from "../../services/fetchImage";
 import axios from "axios";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-<<<<<<< Updated upstream
-=======
+
 import GlobalSpinner from "../../components/common/GlobalSpinner";
->>>>>>> Stashed changes
+import Loader from "../loaders/Loader";
+
+
+
+import GlobalSpinner from "../../components/common/GlobalSpinner";
+
 
 const SocialSharing = ({ post, postId }) => {
   return (
@@ -76,7 +80,7 @@ const PostPage = () => {
       axios.get(`https://heyfarming.com/wp-json/wp/v2/blog/${postId}`),
   });
   if (isLoading) {
-    return <span>Loading...</span>;
+    return <GlobalSpinner/>;
   }
 
   if (isError) {
