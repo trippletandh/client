@@ -12,7 +12,13 @@ const BlogPage = () => {
   });
 
   if (isLoading) {
+
     return <GlobalSpinner/>;
+
+    return <span>Loading...</span>;
+
+    return <GlobalSpinner />;
+
   }
 
   if (isError) {

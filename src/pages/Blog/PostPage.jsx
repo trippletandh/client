@@ -5,8 +5,14 @@ import { InlineShareButtons } from "sharethis-reactjs";
 import fetchImage from "../../services/fetchImage";
 import axios from "axios";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+
 import GlobalSpinner from "../../components/common/GlobalSpinner";
 import Loader from "../loaders/Loader";
+
+
+
+import GlobalSpinner from "../../components/common/GlobalSpinner";
+
 
 const SocialSharing = ({ post, postId }) => {
   return (
