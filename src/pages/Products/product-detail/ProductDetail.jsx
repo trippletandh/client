@@ -5,6 +5,10 @@ import ImageSlider from "./ImageSlider";
 import axios from "axios";
 import AddToCart from "./AddToCart";
 import RelatedProduct from "./RelatedProduct";
+<<<<<<< Updated upstream
+=======
+import GlobalSpinner from "../../../components/common/GlobalSpinner";
+>>>>>>> Stashed changes
 
 const ProductDetail = ({ user }) => {
   const [imageIndex, setImageIndex] = useState(0);
@@ -20,7 +24,11 @@ const ProductDetail = ({ user }) => {
     queryFn: () => axios.get(`/products/${productId}`),
   });
 
+<<<<<<< Updated upstream
   if (isLoading) return <h1>Loading...</h1>;
+=======
+  if (isLoading) return <GlobalSpinner />;
+>>>>>>> Stashed changes
   const { data: product } = data;
 
   return (
@@ -64,10 +72,14 @@ const ProductDetail = ({ user }) => {
                 </p>
               </div>
             </span>
+<<<<<<< Updated upstream
             <div className="mb-[10px] flex gap-1">
               {/* rating */}
               {/* <Rating /> */}
             </div>
+=======
+            <div className="mb-[10px] flex gap-1"></div>
+>>>>>>> Stashed changes
             <div>
               {/* description */}
               <p className="mb-[10px] font-[2px] text-gray-500">
@@ -100,7 +112,12 @@ const ProductDetail = ({ user }) => {
               <span>
                 <button
                   onClick={() => showFormHandle(true)}
+<<<<<<< Updated upstream
                   className="my-2 text-center rounded-xl px-3.5 py-2.5 text-sm bg-slate-700 hover:bg-black hover:cursor-pointer text-white">
+=======
+                  className="my-2 text-center rounded-xl px-3.5 py-2.5 text-sm bg-slate-700 hover:bg-black hover:cursor-pointer text-white"
+                >
+>>>>>>> Stashed changes
                   Write a review
                 </button>
               </span>
@@ -154,7 +171,12 @@ const ProductDetail = ({ user }) => {
                         id="message"
                         rows="4"
                         className="mt-2 p-2.5 w-full lg:w-[70%] text-sm border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+<<<<<<< Updated upstream
                         placeholder="Write your comments here"></textarea>
+=======
+                        placeholder="Write your comments here"
+                      ></textarea>
+>>>>>>> Stashed changes
                     </div>
                   </fieldset>
                   <div className="">
