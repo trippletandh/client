@@ -38,21 +38,21 @@ function Profile({ user }) {
 
           <div className="hidden lg:block mt-2 py-2 text-lg">
             <div className="">
-              <button className="mt-1 mb-2">
+              <button className="mt-1 mb-3">
                 <Link
                   to="/profile"
-                  className="pl-1 pr-10 lg:pr-44 py-2 rounded-md hover:pl-2 hover:bg-green-700/70 hover:text-white transition-all"
+                  className="pr-10 lg:pr-36 py-2 rounded-md pl-2 bg-gray-400/95 text-white hover:bg-green-700/70 hover:text-white transition-all"
                 >
-                  My Orders
+                  🛒: My Orders
                 </Link>
               </button>
               <br />
-              <button>
+              <button className="mt-1">
                 <Link
-                  to="/"
-                  className="pl-1 pr-10 lg:pr-44 py-2 rounded-md hover:pl-2 hover:bg-green-700/70 hover:text-white transition-all"
+                  to="/profile/edit"
+                  className="pr-10 lg:pr-36 py-2 rounded-md hover:pl-2 hover:bg-green-700/70 hover:text-white transition-all"
                 >
-                  My Profile
+                  🆔: My Profile
                 </Link>
               </button>
             </div>

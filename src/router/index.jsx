@@ -64,6 +64,10 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
+        path: "/profile/edit",
+        element: <MyProfile />,
+      },
+      {
         path: "/signin",
         element: <Signin />,
       },

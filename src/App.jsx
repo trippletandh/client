@@ -55,6 +55,14 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/profile/edit"
+            element={
+              <ProtectedRoute user={isConnected}>
+                <MyProfile user={user} />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/" element={<Home />} />
           <Route
             path="/signin"
