@@ -16,6 +16,7 @@ import OrderInfomation from "../pages/CheckOut/OrderInfomation";
 import ProductDetail from "../pages/Products/product-detail/ProductDetail";
 import OrderShipping from "../pages/CheckOut/OrderShipping";
 import CheckOut from "../pages/CheckOut/CheckOut";
+import MyProfile from "../pages/User/MyProfile";
 
 const router = createBrowserRouter([
   {

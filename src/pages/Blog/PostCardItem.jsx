@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import Loader from "../../components/common/Loader";
 import fetchImage from "../../services/fetchImage";
 import Loader from "../loaders/Loader";
 
@@ -18,7 +17,7 @@ const PostCardItem = ({ featureMedia, title, content, author, url, date }) => {
   };
   const dateFormated = new Date(date);
 
-  if (isLoading) return <Loader/>;
+  if (isLoading) return <Loader />;
 
   return (
     <>
@@ -42,10 +41,12 @@ const PostCardItem = ({ featureMedia, title, content, author, url, date }) => {
             <Link
               to={url}
               className="block text-xl font-medium leading-6 my-4 capitalize"
-              dangerouslySetInnerHTML={{ __html: title }}></Link>
+              dangerouslySetInnerHTML={{ __html: title }}
+            ></Link>
             <div
               className="text-black text-sm leading-5 mb-4 text-left"
-              dangerouslySetInnerHTML={{ __html: content }}></div>
+              dangerouslySetInnerHTML={{ __html: content }}
+            ></div>
             <div className="flex gap-5 justify-center flex-nowrap">
               <div className="flex items-center gap-2">
                 <svg viewBox="0 0 23.18 24" width={14} height={14}>

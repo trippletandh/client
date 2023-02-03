@@ -5,14 +5,8 @@ import { InlineShareButtons } from "sharethis-reactjs";
 import fetchImage from "../../services/fetchImage";
 import axios from "axios";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-
 import GlobalSpinner from "../../components/common/GlobalSpinner";
 import Loader from "../loaders/Loader";
-
-
-
-import GlobalSpinner from "../../components/common/GlobalSpinner";
-
 
 const SocialSharing = ({ post, postId }) => {
   return (
@@ -80,7 +74,7 @@ const PostPage = () => {
       axios.get(`https://heyfarming.com/wp-json/wp/v2/blog/${postId}`),
   });
   if (isLoading) {
-    return <GlobalSpinner/>;
+    return <GlobalSpinner />;
   }
 
   if (isError) {
@@ -107,7 +101,8 @@ const PostPage = () => {
             className="text-xl font-medium leading-6 mb-3 capitalize"
             dangerouslySetInnerHTML={{
               __html: post.title.rendered,
-            }}></h1>
+            }}
+          ></h1>
           <div className="text-center flex gap-5 justify-center mb-5">
             <span className="">
               <time dateTime={post.date}>
@@ -129,7 +124,8 @@ const PostPage = () => {
             <span
               dangerouslySetInnerHTML={{
                 __html: post.content.rendered,
-              }}></span>
+              }}
+            ></span>
           </div>
 
           {/* Share */}
@@ -141,7 +137,8 @@ const PostPage = () => {
           <div className="mt-10 text-indigo-900 flex text-lg justify-center leading-7 text-center">
             <Link
               to="/blog"
-              className="flex items-center gap-2 justify-center text-lg">
+              className="flex items-center gap-2 justify-center text-lg"
+            >
               <AiOutlineArrowLeft />
               <span className="w-full">Back to blog</span>
             </Link>

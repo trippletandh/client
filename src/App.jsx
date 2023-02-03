@@ -22,6 +22,7 @@ import Footer from "./components/layouts/Footer";
 import Signout from "./pages/Authentication/Signout";
 import { getUser } from "./services/authService";
 import ForceRedirect from "./components/auth/ForceRedirect";
+import MyProfile from "./pages/User/MyProfile";
 
 function App() {
   getUser();

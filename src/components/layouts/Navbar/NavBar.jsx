@@ -53,10 +53,24 @@ const Navbar = ({ user }) => {
           </div>
           {/* Button */}
           <div className="flex gap-4 md:gap-9">
-            <Link to={user ? "/profile" : "/signin"}>
-              <BiUser className="text-3xl text-[#212529]" />
-            </Link>
-            <Link to="/signout">Signout</Link>
+            <div className="flex items-center gap-4 md:gap-9 text-xl">
+              {user ? (
+                <div className="flex gap-3 items-center">
+                  <Link to="/profile">
+                    <span className="hidden md:block">My account</span>
+                    <BiUser className="md:hidden text-3xl text-[#212529]" />
+                  </Link>
+                  <span>|</span>
+                  <Link to="/signout">Signout</Link>
+                </div>
+              ) : (
+                <div className="flex gap-3 items-center">
+                  <Link to="/signin">Signin</Link>
+                  <span>|</span>
+                  <Link to="/signup">Signup</Link>
+                </div>
+              )}
+            </div>
             <div className="">
               <button className="relative">
                 <Link to="/viewcart">
