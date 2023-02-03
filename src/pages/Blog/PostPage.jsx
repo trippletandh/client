@@ -1,12 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import { InlineShareButtons } from "sharethis-reactjs";
-// import useBlogPost from "../../components/hooks/usePost";
 import fetchImage from "../../services/fetchImage";
 import axios from "axios";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import GlobalSpinner from "../../components/common/GlobalSpinner";
-import Loader from "../loaders/Loader";
+import Loader from "../../components/common/Loader";
 
 const SocialSharing = ({ post, postId }) => {
   return (
@@ -58,7 +57,7 @@ const ImageRender = ({ post }) => {
     queryFn: () => fetchImage(featureMedia),
   });
   if (isLoading) {
-    return <span>Loading...</span>;
+    return <Loader />;
   }
   console.log(imageSrc);
   return (
@@ -101,8 +100,7 @@ const PostPage = () => {
             className="text-xl font-medium leading-6 mb-3 capitalize"
             dangerouslySetInnerHTML={{
               __html: post.title.rendered,
-            }}
-          ></h1>
+            }}></h1>
           <div className="text-center flex gap-5 justify-center mb-5">
             <span className="">
               <time dateTime={post.date}>
@@ -124,8 +122,7 @@ const PostPage = () => {
             <span
               dangerouslySetInnerHTML={{
                 __html: post.content.rendered,
-              }}
-            ></span>
+              }}></span>
           </div>
 
           {/* Share */}
@@ -137,8 +134,7 @@ const PostPage = () => {
           <div className="mt-10 text-indigo-900 flex text-lg justify-center leading-7 text-center">
             <Link
               to="/blog"
-              className="flex items-center gap-2 justify-center text-lg"
-            >
+              className="flex items-center gap-2 justify-center text-lg">
               <AiOutlineArrowLeft />
               <span className="w-full">Back to blog</span>
             </Link>

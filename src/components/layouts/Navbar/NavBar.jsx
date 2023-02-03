@@ -7,20 +7,21 @@ import subNavLink from "./link";
 import NavLink from "./NavLink";
 import { getTotalQuantity } from "../../../services/cartService";
 import { getCartItems } from "../../../pages/ViewCart/useCart";
-import { useEffect } from "react";
 
-const Navbar = ({ user }) => {
+const Navbar = ({ user, isConnected }) => {
   let totalQuantity = 0;
-  // let items;
-  // if (!user) items = [];
-  // else {
-  //   const { data, isLoading } = getCartItems();
-  //   if (isLoading) return <h1>Loading...</h1>;
-  //   items = data.data.products;
-  //   totalQuantity = getTotalQuantity(items);
+  let items;
+  // if (!user) {
+  //   items = JSON.parse(localStorage.getItem("cart"));
+  //   totalQuantity = items ? getTotalQuantity(items) : 0;
   // }
+  if (user) {
+    const { data, isLoading } = getCartItems(user);
+    if (isLoading) return <h1>Loading...</h1>;
+    items = data.data.products;
+    totalQuantity = getTotalQuantity(items);
+  }
 
-  // useEffect(() => {}, [user]);
   return (
     <div className="bg-white  shadow-md">
       {/* Containier */}
@@ -54,7 +55,7 @@ const Navbar = ({ user }) => {
           {/* Button */}
           <div className="flex gap-4 md:gap-9">
             <div className="flex items-center gap-4 md:gap-9 text-xl">
-              {user ? (
+              {isConnected ? (
                 <div className="flex gap-3 items-center">
                   <Link to="/profile">
                     <span className="hidden md:block">My account</span>

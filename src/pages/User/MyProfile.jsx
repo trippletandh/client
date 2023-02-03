@@ -1,4 +1,3 @@
-import "./Profile.css";
 import { Link } from "react-router-dom";
 import EditIcon from "../../components/common/icons/EditIcon";
 
@@ -6,7 +5,7 @@ const MyProfile = ({ user }) => {
   return (
     <div className="max-w-screen-xl mx-auto mt-4 p-4">
       <h1 className="mb-8 text-center text-3xl text-gray-700">
-        Hello {user.name}
+        Hello: {user.name}
       </h1>
       <div className="lg:flex p-4 bg-gray-50 rounded-lg">
         <div className="lg:w-[40%] flex flex-row-reverse justify-between lg:block">
@@ -39,8 +38,7 @@ const MyProfile = ({ user }) => {
               <button className="mt-1 mb-3">
                 <Link
                   to="/profile"
-                  className="pr-10 lg:pr-36 py-2 rounded-md hover:pl-2 hover:-pr-2 hover:bg-green-700/70 hover:text-white transition-all"
-                >
+                  className="pr-10 lg:pr-36 py-2 rounded-md hover:pl-2 hover:-pr-2 hover:bg-green-700/70 hover:text-white transition-all">
                   🛒: My Orders
                 </Link>
               </button>
@@ -48,8 +46,7 @@ const MyProfile = ({ user }) => {
               <button className="mt-1">
                 <Link
                   to="/profile/edit"
-                  className="pr-10 lg:pr-36 py-2 rounded-md pl-2 bg-gray-400/95 text-white hover:bg-green-700/70 hover:text-white transition-all"
-                >
+                  className="pr-10 lg:pr-36 py-2 rounded-md pl-2 bg-gray-400/95 text-white hover:bg-green-700/70 hover:text-white transition-all">
                   🆔: My Profile
                 </Link>
               </button>
@@ -95,7 +92,11 @@ const MyProfile = ({ user }) => {
                 </div>
                 <div className="flex gap-8 mb-3">
                   <p className="w-1/4 text-gray-500 text-right">Phone number</p>
-                  <input type="text" placeholder="0123-456-789" className="pl-2 w-1/2 border rounded" />
+                  <input
+                    type="text"
+                    placeholder="0123-456-789"
+                    className="pl-2 w-1/2 border rounded"
+                  />
                 </div>
                 <div className="flex gap-8 mb-3">
                   <p className="w-1/4 text-gray-500 text-right">Gender</p>

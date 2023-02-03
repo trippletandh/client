@@ -1,3 +1,4 @@
+import axios from "axios";
 export const isAuthenticated = () => {
   if (typeof window == "undefined") {
     return false;
@@ -19,7 +20,7 @@ const parseCookie = (str) =>
     }, {});
 
 export const getUser = () => {
-  const user_cookie = parseCookie(document.cookie);
+  const user_cookie = parseCookie(document.cookie || "");
   if (user_cookie.access_token) {
     const userInfo = JSON.parse(user_cookie.access_token.slice(2));
     // console.log(userInfo);

@@ -5,7 +5,7 @@ import { getCartItems } from "./useCart";
 
 const ViewCart = ({ user }) => {
   let items;
-  if (!user) items = [];
+  // if (!user) items = JSON.parse(localStorage.getItem("cart"));
   const { data, isLoading } = getCartItems(user);
   if (isLoading) return <h1>Loading...</h1>;
   items = data?.data?.products || [];
